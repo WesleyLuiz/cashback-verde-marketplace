@@ -13,3 +13,6 @@ django-admin startproject retorno_natural
 # iniciando a aplicação
 
 django-admin startapp core
+
+# Criando superusuario - admin_natural sW@-1;
+python manage.py createsuperuser

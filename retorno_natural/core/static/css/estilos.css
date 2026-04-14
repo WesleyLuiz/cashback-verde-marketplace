@@ -1,5 +1,136 @@
-body{
-    background-color: blanchedalmond;
-    color: rgb(127, 176, 255);
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #f4f7f6;
+}
 
+/* HERO */
+.hero {
+    height: 65vh;
+    background: url('../images/nature.jpg') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.hero p {
+    margin: 10px 0 20px;
+}
+
+.btn {
+    background: #4caf50;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* CONTAINER */
+.container {
+    padding: 50px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* BADGE */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #2e7d32;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* IMAGEM */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* INFO */
+.info {
+    padding: 15px;
+}
+
+.info h3 {
+    margin-bottom: 8px;
+}
+
+.desc {
+    font-size: 14px;
+    color: #555;
+    height: 40px;
+    overflow: hidden;
+}
+
+/* PREÇO */
+.bottom {
+    margin: 15px 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #2e7d32;
+    font-size: 18px;
+}
+
+/* BOTÃO */
+.btn-buy {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #2e7d32;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-buy:hover {
+    background: #1b5e20;
 }

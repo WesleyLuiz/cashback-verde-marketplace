@@ -1,18 +1,67 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>EcoMarket</title>
+
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Index</h1>
-    <img src="{% static 'images/django.jpeg' %}" alt="">
-    <h2>{{ curso }}</h2>
-    {% for produto in produtos%}
-        <p>{{ produto }}</p>
-    {% endfor %}
+<center>
+    <h1>Bem-vindo ao EcoMarket 🌿</h1>
+    <p>O marketplace sustentável que recompensa suas escolhas conscientes</p>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>🌱 Consuma com consciência</h1>
+        <p>Ganhe cashback enquanto ajuda o planeta</p>
+        <a href="#" class="btn">Explorar produtos</a>
+    </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="container">
+    <h2 class="titulo">Produtos Sustentáveis</h2>
+
+    <div class="grid">
+        {% for produto in produtos %}
+        <div class="card">
+
+            <!-- Badge de cashback -->
+            <div class="badge">
+                ♻ {{ produto.cashback }}%
+            </div>
+
+            {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" alt="">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}" alt="">
+            {% endif %}
+
+            <div class="info">
+                <h3>{{ produto.nome }}</h3>
+
+                <p class="desc">
+                    {{ produto.descricao|default:"Produto sustentável e ecológico 🌿" }}
+                </p>
+
+                <div class="bottom">
+                    <span class="price">R$ {{ produto.preco }}</span>
+                </div>
+
+                <button class="btn-buy">Comprar</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+</center>
+
 </body>
 </html>

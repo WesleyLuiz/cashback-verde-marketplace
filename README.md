@@ -1,4 +1,5 @@
 # cashback-verde-marketplace
+# Ambiente de produção
 # Iniciaremos instalando o django no ambiente virtual com
 pip install django
 

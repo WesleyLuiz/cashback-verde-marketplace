@@ -14,3 +14,12 @@ def index(request):
 
 def contato(request):
     return render( request, 'contato.html')
+
+def produtos(request):
+    produtos = Produto.objects.all()
+
+    context = {
+        'produtos': produtos
+    }
+
+    return render( request, 'produtos.html', context)

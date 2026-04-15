@@ -21,9 +21,26 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">🌿 EcoMarket</a>
+        <a class="navbar-brand fw-bold" href="/">🌿 EcoMarket</a>
+
+        <!-- Botão Carrinho -->
+        <a href="{% url 'ver_carrinho' %}" class="btn btn-light">
+            🛒 Carrinho
+        </a>
     </div>
 </nav>
+
+<!-- MENSAGENS -->
+{% if messages %}
+<div class="container mt-3">
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 
 <!-- HERO -->
 <section class="bg-light text-center py-5">
@@ -43,7 +60,7 @@
         <div class="col-md-4 col-lg-3 mb-4">
             <div class="card h-100 shadow-sm position-relative">
 
-                <!-- Badge -->
+                <!-- Badge Cashback -->
                 <span class="position-absolute top-0 start-0 badge bg-success m-2">
                     ♻ {{ produto.cashback }}%
                 </span>
@@ -66,9 +83,9 @@
                             R$ {{ produto.preco }}
                         </p>
 
-                        <button class="btn btn-success w-100">
-                            Comprar
-                        </button>
+                        <a href="{% url 'add_carrinho' produto.id %}?next={{ request.path }}" class="btn btn-success w-100">
+                            Adicionar ao carrinho 🛒
+                        </a>
                     </div>
                 </div>
 
@@ -85,6 +102,13 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Auto fechar mensagem -->
+<script>
+    setTimeout(() => {
+        document.querySelectorAll('.alert').forEach(el => el.remove());
+    }, 3000);
+</script>
 
 </body>
 </html>
